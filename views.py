@@ -1,3 +1,4 @@
+#This file gets the events from my calendar to pass to the list-upcoming file for comparison
 
 def index(request):
     # variables to access the service account calendar
