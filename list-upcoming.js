@@ -1,3 +1,6 @@
+//This file compares the calendar of the user signed in to mine to display the times we are both available
+
+
 /**
  * Append a pre element to the body containing the given message
  * as its text node. Used to display the results of the API call.
