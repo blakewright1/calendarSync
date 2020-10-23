@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CalendarSync</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="static/style.css" />
+    <script src="static/list_upcoming.js"></script>
+  </head>
+  <body>
+    <h1>CalendarSync</h1>
+    <h3>
+      Login to your Google Account to find times we are both available in the
+      next 2 weeks. Then send me an email at blakewright1021@gmail.com with a
+      time you'd like to meet!
+    </h3>
+
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <div id="btn-div">
+      <button id="authorize_button" style="display: none">
+        Login to Google
+      </button>
+      <button id="signout_button" style="display: none">Sign Out</button>
+      <span><button onclick="runScript()">Generate times</button></span>
+    </div>
+
+    <h2>Times are in EST Military time</h2>
+    <pre id="content" style="white-space: pre-wrap"></pre>
+
+    <p>
+      This website uses the Google Calendar API to get the events on our
+      calenars and compare the times we are available. If you'd like to see the
+      code check it out
+      <a href="https://github.com/blakewright1/calendarSync">here</a>
+    </p>
+
+    <script type="text/javascript">
+      function runScript() {
+        var myJavaScriptVariable = JSON.parse("{{data|escapejs}}");
+        listUpcomingEvents(myJavaScriptVariable);
+      }
+    </script>
+    <script type="text/javascript" src="static/authorization.js"></script>
+    <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"
+    ></script>
+  </body>
+</html>
